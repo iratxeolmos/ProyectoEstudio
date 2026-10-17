@@ -9,9 +9,9 @@ public class RecuentoHorasEstudio {
 	private int horasTotales;
 	private int[] historialHoras;
 	
-	public RecuentoHorasEstudio (int horasPorSemana, int horasTotales, int historialHoras) {
-		this.horasPorSemana = horasPorSemana;
-		this.horasTotales = horasTotales;
+	public RecuentoHorasEstudio () {
+		this.horasPorSemana = 0;
+		this.horasTotales = 0;
 		this.historialHoras = new int[0];
 		
 	}
@@ -30,19 +30,22 @@ public class RecuentoHorasEstudio {
 			nuevoArray[i] = this.historialHoras[i];
 		}
 		
+		nuevoArray[nuevoArray.length - 1] = nuevasHoras;
+		this.historialHoras = nuevoArray;
+		
 	}
 	
 	public void mostrarEstadisticas() {
 		System.out.println("Has estudiado " + horasPorSemana + " horas esta semana y en total del curso " + horasTotales + " horas." );
 		
-		System.out.println("Historial guardado en el array: [");
+		System.out.print("Historial guardado en el array: [");
 		for (int i = 0; i < this.historialHoras.length; i++) {
-			System.out.println(historialHoras[i]);
+			System.out.print(historialHoras[i]);
 			if(i < historialHoras.length - 1){
-				System.out.println(", ");
+				System.out.print(", ");
 			}
 		}
-		System.out.println("]");
+		System.out.print("]");
 	}
 	
 	
@@ -51,7 +54,7 @@ public class RecuentoHorasEstudio {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		RecuentoHorasEstudio miEstudio = new RecuentoHorasEstudio (17, 17, 17);
+		RecuentoHorasEstudio miEstudio = new RecuentoHorasEstudio ();
 		
 		miEstudio.nuevosDatos(sc);
 		miEstudio.mostrarEstadisticas();
