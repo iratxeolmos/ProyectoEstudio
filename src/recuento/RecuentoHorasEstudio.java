@@ -16,7 +16,7 @@ public class RecuentoHorasEstudio {
 		
 	}
 	
-	//si puenia public static void no podía usar "this"
+	//si ponía public static void no podía usar "this"
 	public void nuevosDatos(Scanner sc) {
 		System.out.println("Introduce las horas que has estudiado esta semana: ");
 		int nuevasHoras = sc.nextInt();
