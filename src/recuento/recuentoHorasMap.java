@@ -34,9 +34,49 @@ public class recuentoHorasMap {
 	}
 
 	
+	public void buscarSemana(Scanner sc) {
+		System.out.println("\n¿Qué número de semana quieres consultar?: ");
+		int semanaBuscada = sc.nextInt();
+		
+		if(historialHoras.containsKey(semanaBuscada)) {
+			int horas = historialHoras.get(semanaBuscada);
+			System.out.println("En esa semana estudiaste " + horas + " horas.\n");
+		}else {
+			System.out.println("No hay un registro de la semana " + semanaBuscada + ".\n");
+		
+		}
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
 		recuentoHorasMap miEstudio = new recuentoHorasMap();
+		
+		int opcion;
+		do {
+			System.out.println("\n--- MENÚ RECUENTO DE HORAS ---");
+			System.out.println("1. Registrar / Actualizar horas");
+			System.out.println("2. Buscar semana");
+			System.out.println("3. Salir");
+			System.out.print("Elige una opción: ");
+			opcion = sc.nextInt();
+			
+			switch (opcion) {
+				case 1:
+					miEstudio.nuevosDatos(sc);
+					break;
+				case 2:
+					miEstudio.buscarSemana(sc);
+					break;
+				case 3:
+					System.out.println("Saliendo del programa...");
+					break;
+				default:
+					System.out.println("Opción no válida.");
+			}
+		} while (opcion != 3);
+
+		
+		sc.close();
 		
 	}
 		
