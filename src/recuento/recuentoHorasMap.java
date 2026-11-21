@@ -21,16 +21,16 @@ public class recuentoHorasMap {
 		System.out.println("Introduce las horas estudiadas en la Semana " + numeroSemana + ":");
 		int nuevasHoras = sc.nextInt();
 		
-		if(historialHoras.containsKey(numeroSemana)) {
-			int horasAntiguas = historialHoras.get(numeroSemana);
+		Integer horasAntiguas = historialHoras.put(numeroSemana, nuevasHoras);
+		
+		if(historialHoras != null) {
+			
 			horasTotales -= horasAntiguas;
 			System.out.println("Se han actualizado las horas de la Semana " + numeroSemana);
-			
-			this.historialHoras.put(numeroSemana, nuevasHoras);
-			this.horasTotales += nuevasHoras;
-			
+		} else {
 			System.out.println("Guardadas con éxito las hora de la semana " + numeroSemana);
-		}
+		}	
+			horasTotales += nuevasHoras;
 	}
 
 	
